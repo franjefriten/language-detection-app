@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <title>Lang Detection App</title>
+<head>
+    <h1>APLICACIÓN PARA DETECCIÓN DE IDIOMAS</h1>
+    <style>
+        h1 {
+            background-color:sienna;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <p class="p1">
+            Esta aplicación permite cargar texto de cualquier idioma y
+            detectar el idioma del mismo. Por el momento, admite los siguientes idiomas:
+        </p>
+        <div class="grid-container2">
+            <div class="grid-container2-1">
+                <ul id="lang-list1">
+                    <li>Español</li>
+                    <li>Inglés</li>
+                    <li>Alemán</li>
+                    <li>Francés</li>
+                    <li>Neerlandés</li>
+                    <li>Portugués</li>
+                    <li>Ruso</li>
+                    <li>Tamil</li>
+                    <li>Griego</li>
+                </ul>
+            </div>
+            <div class="grid-container2-2">
+                <ul id="lang-list2">
+                    <li>Turco</li>
+                    <li>Sueco</li>
+                    <li>Kannada</li>
+                    <li>Árabe</li>
+                    <li>Italiano</li>
+                    <li>Hindi</li>
+                    <li>Malayo</li>
+                    <li>Danés</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="interpret-text-container">
+        <h2>Submit Your Text</h2>
+        <form action="/process-text" method="POST">
+            <input type="text" name="text" id="textInput" placeholder="Aporta un texto">
+            <br>
+            <button type="submit" id="submitButton">Submit</button>
+        </form>
+    
+        <div id="response">
+            {% if response_message %}
+                <p>{{ response_message }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="api-button-div">
+        <a class="api" href="/docs">
+            <button class="button-api">Ir a la API</button>
+        </a>
+    </div>
+    <style>
+        .grid-container {
+            width: 50%; /* You can adjust this percentage as needed */
+            background-color: white;
+            text-align: justify; /* Justifies the text */
+            margin-top: 50px;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        .grid-container2{
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            grid-column-start: calc();
+        }
+        .grid-container2-2{
+            margin: auto;
+        }
+        .grid-container2-1{
+            margin: auto;
+        }
+        .container p1 {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #lang-list {
+            line-height: 0.8cm;
+        }
+        .api-button-div{
+            max-width: 100px auto;
+            text-align: center;
+        }
+        .button-api {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .interpret-text-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .interpret-text-container #submitButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</body>
+</html>
