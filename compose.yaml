@@ -8,8 +8,6 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 
-version: 3
-
 services:
   flask_app:
     build:
@@ -17,8 +15,6 @@ services:
       dockerfile: Dockerfile # como se llama el Dockerfile
     ports:
       - 8000:8000
-    volumes:
-      - .:/  # Mounts entire project inside the container
     environment:
       - FLASK_APP=app/main.py
       - FLASK_ENV=development

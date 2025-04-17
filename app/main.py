@@ -30,4 +30,4 @@ def process_text():
     return render_template('home.html', response_message=response_message)
 
 if __name__ == '__main__':
-    flask_app.run(host="localhost", port=8000, debug=True)
+    flask_app.run(host="0.0.0.0", port=8000, debug=True)
